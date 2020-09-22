@@ -1,23 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+
+import ResourceList from "./components/ResourceList";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [resource, setResource] = useState("posts");
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="App-title">Recipe List</div>
+        <ResourceList className="App-resource" resource={resource} />
       </header>
     </div>
   );

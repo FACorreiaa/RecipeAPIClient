@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useResources = (resource) => {
+const useResources = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    (async (resource) => {
+    (async () => {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/${resource}`
+        "https://peaceful-cove-64859.herokuapp.com/recipe"
       );
 
       setResources(response.data);
-    })(resource);
-  }, [resource]);
+    })();
+  }, []);
 
   return resources;
 };

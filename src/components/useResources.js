@@ -7,7 +7,7 @@ const useResources = () => {
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-        "https://peaceful-cove-64859.herokuapp.com/recipe"
+        "https://obscure-river-28733.herokuapp.com/recipe"
       );
 
       setResources(response.data);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import postComments from "./postComments.js";
 import Button from "react-bootstrap/Button";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useResources from "./useResources";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -7,18 +7,19 @@ import Row from "react-bootstrap/Row";
 import Media from "react-bootstrap/Media";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
-import { BsHeart } from "react-icons/bs";
 import DayJS from "react-dayjs";
 import Likes from "./likes/Likes";
-import cake from "../assets/cakeExample.jpg";
 import CommentsButton from "./comments/Comments";
+import { TiThumbsOk } from "react-icons/ti";
+import { ImTwitter } from "react-icons/im";
+import { RiFacebookCircleFill } from "react-icons/ri";
+import { SiLinkedin } from "react-icons/si";
+import { FiInstagram } from "react-icons/fi";
+
 import { useMediaQuery } from "@react-hook/media-query";
-//import postTodoEndpoint from "./Likes_BETA";
 const ResourceList = () => {
   const resources = useResources();
-  //const [like, newLike] = postTodoEndpoint();
   let value = 0;
-  const matches = useMediaQuery("only screen and (max-width: 420px)");
   const units = {
     cal: "kcal;",
     grams: "g;",
@@ -26,7 +27,7 @@ const ResourceList = () => {
   };
 
   const renderLikes = function (param) {
-    if (param == 1) return "Like";
+    if (param === 1) return "Like";
     else return "Likes";
   };
 
@@ -49,75 +50,90 @@ const ResourceList = () => {
         {resources.map((record) => (
           <CardDeck>
             <Card
+              border="light"
               style={{
-                width: "20rem",
+                width: "22em",
                 marginBottom: "10px",
                 backgroundColor: "#f5f4f2",
               }}
               key={record.id}
             >
-              <Card.Header>Desert</Card.Header>
+              <Card.Header as="h5">
+                Desert&nbsp;&nbsp; <TiThumbsOk size={12} />
+              </Card.Header>
               <Card.Img variant="top" src={record.image} />
               <Card.Body>
                 <Card.Title>{record.title}</Card.Title>
                 <Card.Subtitle>Made by: {record.author}</Card.Subtitle>
                 <Card.Text>{record.body}</Card.Text>
-              </Card.Body>
-              <Card.Body>
-                <label>Tap if you enjoyed this recipe please!</label>
-                <p>
-                  <Likes id={record.id} value={value} />
-                  &nbsp;&nbsp;
-                  <span>
-                    {record.likes} {renderLikes(record.likes)}
-                  </span>
-                </p>
-              </Card.Body>
-              <Card.Body style={{ fontSize: "small" }}>
-                <strong>Calories:</strong>
-                <em>
-                  {record.calories}
-                  {units.cal}&nbsp;&nbsp;
-                </em>
-                <p>
-                  <strong>Protein: </strong>
-                  <em>
-                    {record.protein}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                  <strong>Carbs: </strong>
-                  <em>
+                <Row>
+                  <Col>
                     {" "}
-                    {record.carbs}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                  <strong>Fats: </strong>
-                  <em>
-                    {record.fat}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                  <strong>Fiber: </strong>
-                  <em>
-                    {record.fiber}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                  <strong>Sugar: </strong>
-                  <em>
-                    {record.sugar}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                  <strong>Sodium: </strong>
-                  <em>
-                    {record.water}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                  <strong>Water: </strong>
-                  <em>
-                    {record.water}
-                    {units.grams}&nbsp;&nbsp;
-                  </em>
-                </p>
+                    <strong style={{ fontSize: "15px" }}>
+                      Tap if you enjoyed this recipe please!
+                    </strong>
+                    <p></p>
+                  </Col>
+                  <Col>
+                    <Likes id={record.id} value={value} />
+                    &nbsp;&nbsp;
+                    <span>
+                      {record.likes} {renderLikes(record.likes)}
+                      {"\n"}
+                    </span>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    {" "}
+                    {"\n"}
+                    <div style={{ fontSize: "small" }}>
+                      <strong>Calories:</strong>
+                      <em>
+                        {record.calories}
+                        {units.cal}&nbsp;&nbsp;
+                      </em>
+                      <strong>Protein: </strong>
+                      <em>
+                        {record.protein}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                      <strong>Carbs: </strong>
+                      <em>
+                        {" "}
+                        {record.carbs}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                      <strong>Fats: </strong>
+                      <em>
+                        {record.fat}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                      <strong>Fiber: </strong>
+                      <em>
+                        {record.fiber}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                      <strong>Sugar: </strong>
+                      <em>
+                        {record.sugar}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                      <strong>Sodium: </strong>
+                      <em>
+                        {record.water}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                      <strong>Water: </strong>
+                      <em>
+                        {record.water}
+                        {units.grams}&nbsp;&nbsp;
+                      </em>
+                    </div>
+                  </Col>
+                </Row>
               </Card.Body>
+
               <Card.Body
                 scrollable="true"
                 style={{
@@ -165,9 +181,42 @@ const ResourceList = () => {
                 </Form>
               </Card.Body>
               <Card.Footer>
-                <small className="text-muted">
-                  <DayJS format="MM-DD-YYYY">{record.date}</DayJS>
-                </small>
+                <div style={{ textAlign: "center" }}>
+                  <small className="text-muted">
+                    <label>Posted on:&nbsp;&nbsp;</label>
+                    <DayJS format="MM-DD-YYYY">{record.date}</DayJS>&nbsp;&nbsp;
+                  </small>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com/FACorreiaa"
+                    rel=" noopener noreferrer"
+                  >
+                    <ImTwitter color="rgb(0, 123, 255)" />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.facebook.com/Nandooo316"
+                    rel=" noopener noreferrer"
+                  >
+                    <RiFacebookCircleFill color="rgb(66,103,178)" />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/fernando-correia-ab018079/"
+                    rel=" noopener noreferrer"
+                  >
+                    {" "}
+                    <SiLinkedin color="rbg(40,103,178)" />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/fernandotcorreia/"
+                    rel=" noopener noreferrer"
+                  >
+                    {" "}
+                    <FiInstagram colot="rbg(253,29,29)" />
+                  </a>
+                </div>
               </Card.Footer>
             </Card>
           </CardDeck>

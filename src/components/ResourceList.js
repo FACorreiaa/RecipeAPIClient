@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useResources from "./useResources";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import Container from "react-bootstrap/Container";
@@ -10,13 +9,15 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { BsHeart } from "react-icons/bs";
 import DayJS from "react-dayjs";
-import Likes from "./Likes";
+import Likes from "./likes/Likes";
 import cake from "../assets/cakeExample.jpg";
+import CommentsButton from "./comments/Comments";
 import { useMediaQuery } from "@react-hook/media-query";
 //import postTodoEndpoint from "./Likes_BETA";
 const ResourceList = () => {
   const resources = useResources();
   //const [like, newLike] = postTodoEndpoint();
+  let value = 0;
   const matches = useMediaQuery("only screen and (max-width: 420px)");
   const units = {
     cal: "kcal;",
@@ -29,7 +30,19 @@ const ResourceList = () => {
     else return "Likes";
   };
 
-  console.log(resources);
+  const initialState = {
+    body: "",
+    isSubmitting: false,
+    errorMessage: null,
+  };
+  const [body, setBody] = React.useState(initialState);
+  const handleInputChange = (event) => {
+    const item = event.target.value;
+    setBody({
+      ...body,
+      [event.target.name]: item,
+    });
+  };
   return (
     <Container>
       <Row style={{ justifyContent: "space-between" }}>
@@ -53,7 +66,7 @@ const ResourceList = () => {
               <Card.Body>
                 <label>Tap if you enjoyed this recipe please!</label>
                 <p>
-                  <Likes id={record._id} />
+                  <Likes id={record.id} value={value} />
                   &nbsp;&nbsp;
                   <span>
                     {record.likes} {renderLikes(record.likes)}
@@ -137,12 +150,18 @@ const ResourceList = () => {
                         placeholder="Add your comment"
                         as="textarea"
                         rows="2"
+                        onChange={handleInputChange}
+                        name="body"
+                        id="body"
                       />
                     </Col>
                     <Col>
-                      <Button variant="dark">Submit comment</Button>
+                      <CommentsButton id={record.id} body={body} />
                     </Col>
                   </Form.Row>
+                  {body.errorMessage && (
+                    <span className="form-error">{body.errorMessage}</span>
+                  )}
                 </Form>
               </Card.Body>
               <Card.Footer>

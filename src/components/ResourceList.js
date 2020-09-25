@@ -88,7 +88,7 @@ const ResourceList = () => {
                     <strong>Ingredients: </strong>
                     {record.ingredients.length > 0
                       ? record.ingredients.map((ingredient) => (
-                          <span>{ingredient};&nbsp;&nbsp;</span>
+                          <span>{ingredient};&nbsp;</span>
                         ))
                       : "No ingredients added yet"}
                   </Col>
@@ -128,28 +128,28 @@ const ResourceList = () => {
                       <dl>
                         <strong>Calories: </strong>
                         {record.calories}
-                        {units.cal}&nbsp;&nbsp;
+                        {units.cal}
                         <strong>Protein: </strong>
-                        {record.protein}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.protein.toFixed(3)}
+                        {units.grams}
                         <strong>Carbs: </strong>
-                        {record.carbs}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.carbs.toFixed(3)}
+                        {units.grams}
                         <strong>Fats: </strong>
-                        {record.fat}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.fat.toFixed(3)}
+                        {units.grams}
                         <strong>Fiber: </strong>
-                        {record.fiber}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.fiber.toFixed(3)}
+                        {units.grams}
                         <strong>Sugar: </strong>
-                        {record.sugar}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.sugar.toFixed(3)}
+                        {units.grams}
                         <strong>Sodium: </strong>
-                        {record.water}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.sodium.toFixed(3)}
+                        {units.mgs}
                         <strong>Water: </strong>
-                        {record.water}
-                        {units.grams}&nbsp;&nbsp;
+                        {record.water.toFixed(3)}
+                        {units.mls}
                       </dl>
                     </div>
                   </Col>
@@ -191,6 +191,7 @@ const ResourceList = () => {
                         onChange={handleInputChange}
                         name="body"
                         id="body"
+                        style={{ height: "77px" }}
                       />
                     </Col>
                     <Col>

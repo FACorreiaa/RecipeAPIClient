@@ -10,6 +10,7 @@ const CommentsButton = ({ id, body }) => {
         postComments(id, body);
       }}
       variant="dark"
+      size="lg"
     >
       Submit comment
     </Button>

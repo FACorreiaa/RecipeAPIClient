@@ -3,7 +3,6 @@ import "./App.css";
 
 import ResourceList from "./components/ResourceList";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./components/navbar/Footer";
 import CustomNav from "./components/navbar/Navbar";
 
 function App() {

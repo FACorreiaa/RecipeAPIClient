@@ -1,11 +1,6 @@
 import React from "react";
-import { ImTwitter } from "react-icons/im";
-import { RiFacebookCircleFill } from "react-icons/ri";
-import { SiLinkedin } from "react-icons/si";
-import { FiInstagram } from "react-icons/fi";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { useMediaQuery } from "@react-hook/media-query";
 import IconGroup from "./IconGroup";
@@ -39,17 +34,15 @@ const CustomNav = () => {
       </Navbar>
     </Container>
     */
+
     <>
       {matches ? (
         <Container>
           <Navbar bg="dark" variant="dark" expand="md">
             <Navbar.Brand href="">Recipe List</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse
-              id="responsive-navbar-nav"
-              style={{ textAlign: "right" }}
-            >
-              <Nav style={{ textAlign: "right" }}>
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav>
                 <IconGroup />
               </Nav>
             </Navbar.Collapse>

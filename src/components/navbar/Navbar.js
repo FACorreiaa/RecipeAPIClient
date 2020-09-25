@@ -49,9 +49,8 @@ const CustomNav = () => {
           </Navbar>
         </Container>
       ) : (
-        <Container>
+        <Container style={{ display: "flex" }}>
           <div>Recipe List</div>
-          <IconGroup />
         </Container>
       )}
     </>

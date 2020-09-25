@@ -11,8 +11,8 @@ import { useMediaQuery } from "@react-hook/media-query";
 import DayJS from "react-dayjs";
 import Likes from "./likes/Likes";
 import CommentsButton from "./comments/Comments";
-import Helper from "../components/helper/Helper";
 
+//import { useMediaQuery } from "@react-hook/media-query";
 const ResourceList = () => {
   const resources = useResources();
   let value = 0;
@@ -32,7 +32,7 @@ const ResourceList = () => {
     isSubmitting: false,
     errorMessage: null,
   };
-  const matches = useMediaQuery("only screen and (max-width: 768px)");
+  const matches = useMediaQuery("only screen and (max-width: 420px)");
 
   const [body, setBody] = React.useState(initialState);
   const handleInputChange = (event) => {
@@ -43,189 +43,177 @@ const ResourceList = () => {
     });
   };
   return (
-    <>
-      {matches ? (
-        <Container>
-          <Row style={{ justifyContent: "space-between" }}>
-            {resources.map((record) => (
-              <CardDeck>
-                <Card
-                  border="light"
+    <Container>
+      <Row style={{ justifyContent: "space-between" }}>
+        {resources.map((record) => (
+          <CardDeck>
+            <Card
+              border="light"
+              style={{
+                width: "22em",
+                marginBottom: "10px",
+                backgroundColor: "#f5f4f2",
+              }}
+              key={record.id}
+            >
+              <Card.Header as="h5">{record.type}</Card.Header>
+              <Card.Img variant="top" src={record.image} alt="recipe mage" />
+
+              <Card.Body>
+                <small className="text-muted" style={{ textAlign: "center" }}>
+                  <label>Posted on:&nbsp;&nbsp;</label>
+                  <DayJS format="MM-DD-YYYY">{record.date}</DayJS>
+                  &nbsp;&nbsp;
+                </small>
+                <Card.Title>{record.title}</Card.Title>
+                <Card.Subtitle
                   style={{
-                    marginBottom: "10px",
-                    backgroundColor: "#f5f4f2",
+                    marginBottom: "1em",
                   }}
-                  key={record.id}
                 >
-                  <Card.Header as="h5">{record.type}</Card.Header>
-                  <Card.Img
-                    variant="top"
-                    src={record.image}
-                    alt="recipe mage"
-                  />
-
-                  <Card.Body>
-                    <small
-                      className="text-muted"
-                      style={{ textAlign: "center" }}
-                    >
-                      <label>Posted on:&nbsp;&nbsp;</label>
-                      <DayJS format="MM-DD-YYYY">{record.date}</DayJS>
-                      &nbsp;&nbsp;
-                    </small>
-                    <Card.Title>{record.title}</Card.Title>
-                    <Card.Subtitle
-                      style={{
-                        marginBottom: "1em",
-                      }}
-                    >
-                      {record.body}
-                    </Card.Subtitle>
-                    <Row>
-                      <Col>
-                        <Card.Text>
-                          <strong>Made by:</strong> {record.author}
-                        </Card.Text>
-                      </Col>
-                    </Row>
-                    <Row
-                      style={{
-                        marginTop: "1em",
-                        marginBottom: "1em",
-                        fontSize: "normal",
-                      }}
-                    >
-                      <Col>
-                        {" "}
-                        <strong>Ingredients: </strong>
-                        {record.ingredients.length > 0
-                          ? record.ingredients.map((ingredient) => (
-                              <span>{ingredient};&nbsp;</span>
-                            ))
-                          : "No ingredients added yet"}
-                      </Col>
-                    </Row>{" "}
-                    <Row
-                      style={{
-                        marginTop: "1em",
-                        marginBottom: "1em",
-                        fontSize: "small",
-                      }}
-                    >
-                      <Col>
-                        <div>
-                          <strong style={{ fontSize: "15px" }}>
-                            Tap if you enjoyed this recipe please!
-                          </strong>
-                        </div>
-                      </Col>
-                      <Col>
-                        <Likes id={record.id} value={value} />
-                        &nbsp;&nbsp;
+                  {record.body}
+                </Card.Subtitle>
+                <Row>
+                  <Col>
+                    <Card.Text>
+                      <strong>Made by:</strong> {record.author}
+                    </Card.Text>
+                  </Col>
+                </Row>
+                <Row
+                  style={{
+                    marginTop: "1em",
+                    marginBottom: "1em",
+                    fontSize: "normal",
+                  }}
+                >
+                  <Col>
+                    {" "}
+                    <strong>Ingredients: </strong>
+                    {record.ingredients.length > 0
+                      ? record.ingredients.map((ingredient) => (
+                          <span>{ingredient};&nbsp;</span>
+                        ))
+                      : "No ingredients added yet"}
+                  </Col>
+                </Row>{" "}
+                <Row
+                  style={{
+                    marginTop: "1em",
+                    marginBottom: "1em",
+                    fontSize: "small",
+                  }}
+                >
+                  <Col>
+                    <div>
+                      <strong style={{ fontSize: "15px" }}>
+                        Tap if you enjoyed this recipe please!
+                      </strong>
+                    </div>
+                  </Col>
+                  <Col>
+                    <Likes id={record.id} value={value} />
+                    &nbsp;&nbsp;
+                    <span>
+                      {record.likes} {renderLikes(record.likes)}
+                    </span>
+                  </Col>
+                </Row>
+                <Row
+                  style={{
+                    marginTop: "1em",
+                    marginBottom: "1em",
+                    fontSize: "small",
+                  }}
+                >
+                  <Col>
+                    <div>
+                      <strong>Nutrients:</strong>
+                      <div>
                         <span>
-                          {record.likes} {renderLikes(record.likes)}
+                          <strong>Calories: </strong>
+                          {record.calories}
+                          {units.cal}
+                          <strong>Protein: </strong>
+                          {record.protein.toFixed(3)}
+                          {units.grams}
+                          <strong>Carbs: </strong>
+                          {record.carbs.toFixed(3)}
+                          {units.grams}
+                          <strong>Fats: </strong>
+                          {record.fat.toFixed(3)}
+                          {units.grams}
+                          <strong>Fiber: </strong>
+                          {record.fiber.toFixed(3)}
+                          {units.grams}
+                          <strong>Sugar: </strong>
+                          {record.sugar.toFixed(3)}
+                          {units.grams}
+                          <strong>Sodium: </strong>
+                          {record.sodium.toFixed(3)}
+                          {units.mgs}
+                          <strong>Water: </strong>
+                          {record.water.toFixed(3)}
+                          {units.mls}
                         </span>
-                      </Col>
-                    </Row>
-                    <Row
-                      style={{
-                        marginTop: "1em",
-                        marginBottom: "1em",
-                        fontSize: "small",
-                      }}
-                    >
-                      <Col>
-                        <div>
-                          <strong>Nutrients:</strong>
-                          <div>
-                            <span>
-                              <strong>Calories: </strong>
-                              {record.calories}
-                              {units.cal}
-                              <strong>Protein: </strong>
-                              {record.protein.toFixed(3)}
-                              {units.grams}
-                              <strong>Carbs: </strong>
-                              {record.carbs.toFixed(3)}
-                              {units.grams}
-                              <strong>Fats: </strong>
-                              {record.fat.toFixed(3)}
-                              {units.grams}
-                              <strong>Fiber: </strong>
-                              {record.fiber.toFixed(3)}
-                              {units.grams}
-                              <strong>Sugar: </strong>
-                              {record.sugar.toFixed(3)}
-                              {units.grams}
-                              <strong>Sodium: </strong>
-                              {record.sodium.toFixed(3)}
-                              {units.mgs}
-                              <strong>Water: </strong>
-                              {record.water.toFixed(3)}
-                              {units.mls}
-                            </span>
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-
-                  <Card.Body
-                    scrollable="true"
-                    style={{
-                      maxHeight: "calc(100vh - 210px)",
-                      overflowY: "auto",
-                    }}
-                  >
-                    {record.comments.map((comment) => (
-                      <div style={{ marginTop: "1em", marginBottom: "1em" }}>
-                        <ul className="list-unstyled">
-                          <Media as="li">
-                            <Media.Body>
-                              <span style={{ fontSize: "10px" }}>
-                                <DayJS asString={true} element="strong">
-                                  {comment.date}
-                                </DayJS>
-                              </span>
-                              <p>{comment.body}</p>
-                            </Media.Body>
-                          </Media>
-                        </ul>
                       </div>
-                    ))}
-                  </Card.Body>
-                  <Card.Body style={{ paddingBottom: "5px" }}>
-                    <Form>
-                      <Form.Row>
-                        <Col>
-                          <Form.Control
-                            placeholder="Add your comment"
-                            as="textarea"
-                            rows="2"
-                            onChange={handleInputChange}
-                            name="body"
-                            id="body"
-                            style={{ height: "77px" }}
-                          />
-                        </Col>
-                        <Col>
-                          <CommentsButton id={record.id} body={body} />
-                        </Col>
-                      </Form.Row>
-                      {body.errorMessage && (
-                        <span className="form-error">{body.errorMessage}</span>
-                      )}
-                    </Form>
-                  </Card.Body>
-                </Card>
-              </CardDeck>
-            ))}
-          </Row>
-        </Container>
-      ) : (
-        <Helper />
-      )}
-    </>
+                    </div>
+                  </Col>
+                </Row>
+              </Card.Body>
+
+              <Card.Body
+                scrollable="true"
+                style={{
+                  maxHeight: "calc(100vh - 210px)",
+                  overflowY: "auto",
+                }}
+              >
+                {record.comments.map((comment) => (
+                  <div style={{ marginTop: "1em", marginBottom: "1em" }}>
+                    <ul className="list-unstyled">
+                      <Media as="li">
+                        <Media.Body>
+                          <span style={{ fontSize: "10px" }}>
+                            <DayJS asString={true} element="strong">
+                              {comment.date}
+                            </DayJS>
+                          </span>
+                          <p>{comment.body}</p>
+                        </Media.Body>
+                      </Media>
+                    </ul>
+                  </div>
+                ))}
+              </Card.Body>
+              <Card.Body style={{ paddingBottom: "5px" }}>
+                <Form>
+                  <Form.Row>
+                    <Col>
+                      <Form.Control
+                        placeholder="Add your comment"
+                        as="textarea"
+                        rows="2"
+                        onChange={handleInputChange}
+                        name="body"
+                        id="body"
+                        style={{ height: "77px" }}
+                      />
+                    </Col>
+                    <Col>
+                      <CommentsButton id={record.id} body={body} />
+                    </Col>
+                  </Form.Row>
+                  {body.errorMessage && (
+                    <span className="form-error">{body.errorMessage}</span>
+                  )}
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardDeck>
+        ))}
+      </Row>
+    </Container>
   );
 };
 

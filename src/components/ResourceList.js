@@ -7,12 +7,10 @@ import Row from "react-bootstrap/Row";
 import Media from "react-bootstrap/Media";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
-import { useMediaQuery } from "@react-hook/media-query";
 import DayJS from "react-dayjs";
 import Likes from "./likes/Likes";
 import CommentsButton from "./comments/Comments";
-
-//import { useMediaQuery } from "@react-hook/media-query";
+import IconGroup from "./navbar/IconGroup";
 const ResourceList = () => {
   const resources = useResources();
   let value = 0;
@@ -32,7 +30,6 @@ const ResourceList = () => {
     isSubmitting: false,
     errorMessage: null,
   };
-  const matches = useMediaQuery("only screen and (max-width: 420px)");
 
   const [body, setBody] = React.useState(initialState);
   const handleInputChange = (event) => {
@@ -56,7 +53,6 @@ const ResourceList = () => {
               }}
               key={record.id}
             >
-              <Card.Header as="h5">{record.type}</Card.Header>
               <Card.Img variant="top" src={record.image} alt="recipe mage" />
 
               <Card.Body>
@@ -65,6 +61,9 @@ const ResourceList = () => {
                   <DayJS format="MM-DD-YYYY">{record.date}</DayJS>
                   &nbsp;&nbsp;
                 </small>
+                <div>
+                  <small style={{ textAlign: "center" }}>{record.type}</small>
+                </div>
                 <Card.Title>{record.title}</Card.Title>
                 <Card.Subtitle
                   style={{
@@ -209,6 +208,9 @@ const ResourceList = () => {
                   )}
                 </Form>
               </Card.Body>
+              <Card.Footer>
+                <IconGroup />
+              </Card.Footer>
             </Card>
           </CardDeck>
         ))}

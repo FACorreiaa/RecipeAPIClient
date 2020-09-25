@@ -5,20 +5,20 @@ import { SiLinkedin } from "react-icons/si";
 import { FiInstagram } from "react-icons/fi";
 const IconGroup = () => {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <a
         target="_blank"
         href="https://twitter.com/FACorreiaa"
         rel=" noopener noreferrer"
       >
-        <ImTwitter color="rgb(0, 123, 255)" size="48px" />
+        <ImTwitter color="rgb(0, 123, 255)" size="24px" />
       </a>
       <a
         target="_blank"
         href="https://www.facebook.com/Nandooo316"
         rel=" noopener noreferrer"
       >
-        <RiFacebookCircleFill color="rgb(66,103,178)" size="48px" />
+        <RiFacebookCircleFill color="rgb(66,103,178)" size="24px" />
       </a>
       <a
         target="_blank"
@@ -26,7 +26,7 @@ const IconGroup = () => {
         rel=" noopener noreferrer"
       >
         {" "}
-        <SiLinkedin color="rbg(40,103,178)" size="48px" />
+        <SiLinkedin color="rbg(40,103,178)" size="24px" />
       </a>
       <a
         target="_blank"
@@ -34,7 +34,7 @@ const IconGroup = () => {
         rel=" noopener noreferrer"
       >
         {" "}
-        <FiInstagram colot="rbg(253,29,29)" size="48px" />
+        <FiInstagram colot="rbg(253,29,29)" size="24px" />
       </a>
     </div>
   );

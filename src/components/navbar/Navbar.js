@@ -43,16 +43,7 @@ const CustomNav = () => {
       {matches ? (
         <Container>
           <Navbar bg="dark" variant="dark" expand="md">
-            <Navbar.Brand href="">
-              <img
-                alt=""
-                src="/logo192.png"
-                width="48"
-                height="48"
-                className="d-inline-block align-top"
-              />{" "}
-              Recipe List
-            </Navbar.Brand>
+            <Navbar.Brand href="">Recipe List</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
               id="responsive-navbar-nav"
@@ -66,16 +57,7 @@ const CustomNav = () => {
         </Container>
       ) : (
         <Container>
-          <div style={{ display: "inline-flex" }}>
-            <img
-              alt=""
-              src="/logo192.png"
-              width="72"
-              height="72"
-              className="d-inline-block align-top"
-            />
-            <div>Recipe List</div>
-          </div>
+          <div>Recipe List</div>
           <IconGroup />
         </Container>
       )}

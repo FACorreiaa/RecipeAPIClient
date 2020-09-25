@@ -49,7 +49,6 @@ const ResourceList = () => {
       <Row style={{ justifyContent: "space-between" }}>
         {resources.map((record) => (
           <CardDeck>
-            {console.log(record)}
             <Card
               border="light"
               style={{

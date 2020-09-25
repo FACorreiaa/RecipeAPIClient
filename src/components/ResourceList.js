@@ -125,32 +125,34 @@ const ResourceList = () => {
                   <Col>
                     <div>
                       <strong>Nutrients:</strong>
-                      <dl>
-                        <strong>Calories: </strong>
-                        {record.calories}
-                        {units.cal}
-                        <strong>Protein: </strong>
-                        {record.protein.toFixed(3)}
-                        {units.grams}
-                        <strong>Carbs: </strong>
-                        {record.carbs.toFixed(3)}
-                        {units.grams}
-                        <strong>Fats: </strong>
-                        {record.fat.toFixed(3)}
-                        {units.grams}
-                        <strong>Fiber: </strong>
-                        {record.fiber.toFixed(3)}
-                        {units.grams}
-                        <strong>Sugar: </strong>
-                        {record.sugar.toFixed(3)}
-                        {units.grams}
-                        <strong>Sodium: </strong>
-                        {record.sodium.toFixed(3)}
-                        {units.mgs}
-                        <strong>Water: </strong>
-                        {record.water.toFixed(3)}
-                        {units.mls}
-                      </dl>
+                      <div>
+                        <dl>
+                          <strong>Calories: </strong>
+                          {record.calories}
+                          {units.cal}
+                          <strong>Protein: </strong>
+                          {record.protein.toFixed(3)}
+                          {units.grams}
+                          <strong>Carbs: </strong>
+                          {record.carbs.toFixed(3)}
+                          {units.grams}
+                          <strong>Fats: </strong>
+                          {record.fat.toFixed(3)}
+                          {units.grams}
+                          <strong>Fiber: </strong>
+                          {record.fiber.toFixed(3)}
+                          {units.grams}
+                          <strong>Sugar: </strong>
+                          {record.sugar.toFixed(3)}
+                          {units.grams}
+                          <strong>Sodium: </strong>
+                          {record.sodium.toFixed(3)}
+                          {units.mgs}
+                          <strong>Water: </strong>
+                          {record.water.toFixed(3)}
+                          {units.mls}
+                        </dl>
+                      </div>
                     </div>
                   </Col>
                 </Row>

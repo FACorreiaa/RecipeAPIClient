@@ -11,10 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-/* On screens that are 992px or less, set the background color to blue */
-@media screen and (max-width: 414px) {
-  body {
-    width: 0rm;
-  }
-}

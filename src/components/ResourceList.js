@@ -14,6 +14,7 @@ import { ImTwitter } from "react-icons/im";
 import { RiFacebookCircleFill } from "react-icons/ri";
 import { SiLinkedin } from "react-icons/si";
 import { FiInstagram } from "react-icons/fi";
+import { Picture } from "react-responsive-picture";
 
 //import { useMediaQuery } from "@react-hook/media-query";
 const ResourceList = () => {
@@ -59,6 +60,8 @@ const ResourceList = () => {
             >
               <Card.Header as="h5">{record.type}</Card.Header>
               <Card.Img variant="top" src={record.image} alt="recipe mage" />
+              <Picture src={record.image} alt="recipe mage" />
+
               <Card.Body>
                 <Card.Title>{record.title}</Card.Title>
                 <Card.Subtitle>Made by: {record.author}</Card.Subtitle>

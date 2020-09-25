@@ -59,9 +59,7 @@ const ResourceList = () => {
               }}
               key={record.id}
             >
-              <Card.Header as="h5">
-                {record.type}&nbsp;&nbsp; <TiThumbsOk size={12} />
-              </Card.Header>
+              <Card.Header as="h5">{record.type}</Card.Header>
               <Card.Img variant="top" src={record.image} />
               <Card.Body>
                 <Card.Title>{record.title}</Card.Title>

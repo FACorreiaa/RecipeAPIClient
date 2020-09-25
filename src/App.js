@@ -5,8 +5,24 @@ import ResourceList from "./components/ResourceList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [resource, setResource] = useState("posts");
-
+  const [resource, setResource] = useState();
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/sw.js").then(
+        function (registration) {
+          // Registration was successful
+          console.log(
+            "ServiceWorker registration successful with scope: ",
+            registration.scope
+          );
+        },
+        function (err) {
+          // registration failed :(
+          console.log("ServiceWorker registration failed: ", err);
+        }
+      );
+    });
+  }
   return (
     <div className="App">
       <header className="App-header">

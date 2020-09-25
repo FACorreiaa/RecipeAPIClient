@@ -49,6 +49,7 @@ const ResourceList = () => {
       <Row style={{ justifyContent: "space-between" }}>
         {resources.map((record) => (
           <CardDeck>
+            {console.log(record)}
             <Card
               border="light"
               style={{
@@ -59,7 +60,7 @@ const ResourceList = () => {
               key={record.id}
             >
               <Card.Header as="h5">
-                Desert&nbsp;&nbsp; <TiThumbsOk size={12} />
+                {record.type}&nbsp;&nbsp; <TiThumbsOk size={12} />
               </Card.Header>
               <Card.Img variant="top" src={record.image} />
               <Card.Body>
@@ -69,24 +70,32 @@ const ResourceList = () => {
                 <Row>
                   <Col>
                     {" "}
-                    <strong style={{ fontSize: "15px" }}>
-                      Tap if you enjoyed this recipe please!
-                    </strong>
-                    <p></p>
+                    <strong>Ingredients: </strong>
+                    {record.ingredients.length > 0
+                      ? record.ingredients.map((ingredient) => (
+                          <em>{ingredient};&nbsp;&nbsp;</em>
+                        ))
+                      : "No ingredients added yet"}
+                  </Col>
+                </Row>{" "}
+                <Row style={{ marginTop: "1em", marginBottom: "1em" }}>
+                  <Col>
+                    <div>
+                      <strong style={{ fontSize: "15px" }}>
+                        Tap if you enjoyed this recipe please!
+                      </strong>
+                    </div>
                   </Col>
                   <Col>
                     <Likes id={record.id} value={value} />
                     &nbsp;&nbsp;
                     <span>
                       {record.likes} {renderLikes(record.likes)}
-                      {"\n"}
                     </span>
                   </Col>
                 </Row>
-                <Row>
+                <Row style={{ marginTop: "1em", marginBottom: "1em" }}>
                   <Col>
-                    {" "}
-                    {"\n"}
                     <div style={{ fontSize: "small" }}>
                       <strong>Calories:</strong>
                       <em>
@@ -142,7 +151,7 @@ const ResourceList = () => {
                 }}
               >
                 {record.comments.map((comment) => (
-                  <div>
+                  <div style={{ marginTop: "1em", marginBottom: "1em" }}>
                     <ul className="list-unstyled">
                       <Media as="li">
                         <Media.Body>

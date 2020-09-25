@@ -66,7 +66,16 @@ const CustomNav = () => {
         </Container>
       ) : (
         <Container>
-          <div>Recipe List</div>
+          <div style={{ display: "inline-flex" }}>
+            <img
+              alt=""
+              src="/logo192.png"
+              width="72"
+              height="72"
+              className="d-inline-block align-top"
+            />
+            <div>Recipe List</div>
+          </div>
           <IconGroup />
         </Container>
       )}

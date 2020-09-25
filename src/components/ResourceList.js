@@ -93,7 +93,7 @@ const ResourceList = () => {
                 </Row>
                 <Row style={{ marginTop: "1em", marginBottom: "1em" }}>
                   <Col>
-                    <div style={{ fontSize: "small" }}>
+                    <div style={{ fontSize: "x-small" }}>
                       <strong>Calories:</strong>
                       <em>
                         {record.calories}

@@ -58,7 +58,7 @@ const ResourceList = () => {
               key={record.id}
             >
               <Card.Header as="h5">{record.type}</Card.Header>
-              <Card.Img variant="top" src={record.image} />
+              <Card.Img variant="top" src={record.image} alt="recipe mage" />
               <Card.Body>
                 <Card.Title>{record.title}</Card.Title>
                 <Card.Subtitle>Made by: {record.author}</Card.Subtitle>

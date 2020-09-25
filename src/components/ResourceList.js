@@ -88,7 +88,7 @@ const ResourceList = () => {
                     <strong>Ingredients: </strong>
                     {record.ingredients.length > 0
                       ? record.ingredients.map((ingredient) => (
-                          <em>{ingredient};&nbsp;&nbsp;</em>
+                          <span>{ingredient};&nbsp;&nbsp;</span>
                         ))
                       : "No ingredients added yet"}
                   </Col>
@@ -119,7 +119,7 @@ const ResourceList = () => {
                   style={{
                     marginTop: "1em",
                     marginBottom: "1em",
-                    fontSize: "x-small",
+                    fontSize: "small",
                   }}
                 >
                   <Col>
@@ -129,8 +129,6 @@ const ResourceList = () => {
                         <strong>Calories: </strong>
                         {record.calories}
                         {units.cal}&nbsp;&nbsp;
-                        {record.protein}
-                        {units.grams}&nbsp;&nbsp;
                         <strong>Protein: </strong>
                         {record.protein}
                         {units.grams}&nbsp;&nbsp;
@@ -182,7 +180,7 @@ const ResourceList = () => {
                   </div>
                 ))}
               </Card.Body>
-              <Card.Body>
+              <Card.Body style={{ paddingBottom: "5px" }}>
                 <Form>
                   <Form.Row>
                     <Col>

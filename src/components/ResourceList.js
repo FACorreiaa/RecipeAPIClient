@@ -10,10 +10,6 @@ import Col from "react-bootstrap/Col";
 import DayJS from "react-dayjs";
 import Likes from "./likes/Likes";
 import CommentsButton from "./comments/Comments";
-import { ImTwitter } from "react-icons/im";
-import { RiFacebookCircleFill } from "react-icons/ri";
-import { SiLinkedin } from "react-icons/si";
-import { FiInstagram } from "react-icons/fi";
 
 //import { useMediaQuery } from "@react-hook/media-query";
 const ResourceList = () => {
@@ -61,6 +57,10 @@ const ResourceList = () => {
               <Card.Img variant="top" src={record.image} alt="recipe mage" />
 
               <Card.Body>
+                <small className="text-muted" style={{ textAlign: "center" }}>
+                  <label>Posted on:&nbsp;&nbsp;</label>
+                  <DayJS format="MM-DD-YYYY">{record.date}</DayJS>&nbsp;&nbsp;
+                </small>
                 <Card.Title>{record.title}</Card.Title>
                 <Card.Subtitle
                   style={{
@@ -203,44 +203,6 @@ const ResourceList = () => {
                   )}
                 </Form>
               </Card.Body>
-              <Card.Footer>
-                <div style={{ textAlign: "center" }}>
-                  <small className="text-muted">
-                    <label>Posted on:&nbsp;&nbsp;</label>
-                    <DayJS format="MM-DD-YYYY">{record.date}</DayJS>&nbsp;&nbsp;
-                  </small>
-                  <a
-                    target="_blank"
-                    href="https://twitter.com/FACorreiaa"
-                    rel=" noopener noreferrer"
-                  >
-                    <ImTwitter color="rgb(0, 123, 255)" size="21px" />
-                  </a>
-                  <a
-                    target="_blank"
-                    href="https://www.facebook.com/Nandooo316"
-                    rel=" noopener noreferrer"
-                  >
-                    <RiFacebookCircleFill color="rgb(66,103,178)" size="21px" />
-                  </a>
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/fernando-correia-ab018079/"
-                    rel=" noopener noreferrer"
-                  >
-                    {" "}
-                    <SiLinkedin color="rbg(40,103,178)" size="21px" />
-                  </a>
-                  <a
-                    target="_blank"
-                    href="https://www.instagram.com/fernandotcorreia/"
-                    rel=" noopener noreferrer"
-                  >
-                    {" "}
-                    <FiInstagram colot="rbg(253,29,29)" size="21px" />
-                  </a>
-                </div>
-              </Card.Footer>
             </Card>
           </CardDeck>
         ))}

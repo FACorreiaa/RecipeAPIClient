@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Recipe List",
+  "name": "Recipe List and full ingredient and macro nutrients list",
   "icons": [
     {
       "src": "favicon.ico",

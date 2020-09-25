@@ -62,9 +62,27 @@ const ResourceList = () => {
 
               <Card.Body>
                 <Card.Title>{record.title}</Card.Title>
-                <Card.Subtitle>Made by: {record.author}</Card.Subtitle>
-                <Card.Text>{record.body}</Card.Text>
+                <Card.Subtitle
+                  style={{
+                    marginBottom: "1em",
+                  }}
+                >
+                  {record.body}
+                </Card.Subtitle>
                 <Row>
+                  <Col>
+                    <Card.Text>
+                      <strong>Made by:</strong> {record.author}
+                    </Card.Text>
+                  </Col>
+                </Row>
+                <Row
+                  style={{
+                    marginTop: "1em",
+                    marginBottom: "1em",
+                    fontSize: "normal",
+                  }}
+                >
                   <Col>
                     {" "}
                     <strong>Ingredients: </strong>
@@ -75,7 +93,13 @@ const ResourceList = () => {
                       : "No ingredients added yet"}
                   </Col>
                 </Row>{" "}
-                <Row style={{ marginTop: "1em", marginBottom: "1em" }}>
+                <Row
+                  style={{
+                    marginTop: "1em",
+                    marginBottom: "1em",
+                    fontSize: "small",
+                  }}
+                >
                   <Col>
                     <div>
                       <strong style={{ fontSize: "15px" }}>
@@ -91,50 +115,44 @@ const ResourceList = () => {
                     </span>
                   </Col>
                 </Row>
-                <Row style={{ marginTop: "1em", marginBottom: "1em" }}>
+                <Row
+                  style={{
+                    marginTop: "1em",
+                    marginBottom: "1em",
+                    fontSize: "x-small",
+                  }}
+                >
                   <Col>
-                    <div style={{ fontSize: "x-small" }}>
-                      <strong>Calories:</strong>
-                      <em>
+                    <div>
+                      <strong>Nutrients:</strong>
+                      <dl>
+                        <strong>Calories: </strong>
                         {record.calories}
                         {units.cal}&nbsp;&nbsp;
-                      </em>
-                      <strong>Protein: </strong>
-                      <em>
                         {record.protein}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
-                      <strong>Carbs: </strong>
-                      <em>
-                        {" "}
+                        <strong>Protein: </strong>
+                        {record.protein}
+                        {units.grams}&nbsp;&nbsp;
+                        <strong>Carbs: </strong>
                         {record.carbs}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
-                      <strong>Fats: </strong>
-                      <em>
+                        <strong>Fats: </strong>
                         {record.fat}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
-                      <strong>Fiber: </strong>
-                      <em>
+                        <strong>Fiber: </strong>
                         {record.fiber}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
-                      <strong>Sugar: </strong>
-                      <em>
+                        <strong>Sugar: </strong>
                         {record.sugar}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
-                      <strong>Sodium: </strong>
-                      <em>
+                        <strong>Sodium: </strong>
                         {record.water}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
-                      <strong>Water: </strong>
-                      <em>
+                        <strong>Water: </strong>
                         {record.water}
                         {units.grams}&nbsp;&nbsp;
-                      </em>
+                      </dl>
                     </div>
                   </Col>
                 </Row>
@@ -197,14 +215,14 @@ const ResourceList = () => {
                     href="https://twitter.com/FACorreiaa"
                     rel=" noopener noreferrer"
                   >
-                    <ImTwitter color="rgb(0, 123, 255)" />
+                    <ImTwitter color="rgb(0, 123, 255)" size="21px" />
                   </a>
                   <a
                     target="_blank"
                     href="https://www.facebook.com/Nandooo316"
                     rel=" noopener noreferrer"
                   >
-                    <RiFacebookCircleFill color="rgb(66,103,178)" />
+                    <RiFacebookCircleFill color="rgb(66,103,178)" size="21px" />
                   </a>
                   <a
                     target="_blank"
@@ -212,7 +230,7 @@ const ResourceList = () => {
                     rel=" noopener noreferrer"
                   >
                     {" "}
-                    <SiLinkedin color="rbg(40,103,178)" />
+                    <SiLinkedin color="rbg(40,103,178)" size="21px" />
                   </a>
                   <a
                     target="_blank"
@@ -220,7 +238,7 @@ const ResourceList = () => {
                     rel=" noopener noreferrer"
                   >
                     {" "}
-                    <FiInstagram colot="rbg(253,29,29)" />
+                    <FiInstagram colot="rbg(253,29,29)" size="21px" />
                   </a>
                 </div>
               </Card.Footer>

@@ -126,7 +126,7 @@ const ResourceList = () => {
                     <div>
                       <strong>Nutrients:</strong>
                       <div>
-                        <dl>
+                        <span>
                           <strong>Calories: </strong>
                           {record.calories}
                           {units.cal}
@@ -151,7 +151,7 @@ const ResourceList = () => {
                           <strong>Water: </strong>
                           {record.water.toFixed(3)}
                           {units.mls}
-                        </dl>
+                        </span>
                       </div>
                     </div>
                   </Col>

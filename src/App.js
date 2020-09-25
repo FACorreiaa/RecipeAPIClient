@@ -5,7 +5,7 @@ import ResourceList from "./components/ResourceList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [resource, setResource] = useState();
+  const [resource] = useState();
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
       navigator.serviceWorker.register("/sw.js").then(

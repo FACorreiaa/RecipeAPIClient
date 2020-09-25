@@ -10,13 +10,12 @@ import Col from "react-bootstrap/Col";
 import DayJS from "react-dayjs";
 import Likes from "./likes/Likes";
 import CommentsButton from "./comments/Comments";
-import { TiThumbsOk } from "react-icons/ti";
 import { ImTwitter } from "react-icons/im";
 import { RiFacebookCircleFill } from "react-icons/ri";
 import { SiLinkedin } from "react-icons/si";
 import { FiInstagram } from "react-icons/fi";
 
-import { useMediaQuery } from "@react-hook/media-query";
+//import { useMediaQuery } from "@react-hook/media-query";
 const ResourceList = () => {
   const resources = useResources();
   let value = 0;

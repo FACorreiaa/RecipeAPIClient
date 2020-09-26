@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 
 import ResourceList from "./components/ResourceList";
-import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [resource] = useState();
 

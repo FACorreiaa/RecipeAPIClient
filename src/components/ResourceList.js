@@ -29,6 +29,22 @@ const ResourceList = () => {
     else return "Likes";
   };
 
+  const matches = useMediaQuery("only screen and (max-width: 693px)");
+
+  const renderMobileOrDesktop = () => {
+    const desktop = {
+      width: "22em",
+      marginBottom: "10px",
+      backgroundColor: "#f5f4f2",
+    };
+    const mobile = {
+      marginBottom: "10px",
+      backgroundColor: "#f5f4f2",
+    };
+    if (matches) return mobile;
+    else return desktop;
+  };
+
   const initialState = {
     body: "",
     isSubmitting: false,
@@ -44,7 +60,6 @@ const ResourceList = () => {
     });
   };
 
-  const matches = useMediaQuery("only screen and (max-width: 492px)");
   return (
     <>
       {matches ? (
@@ -54,17 +69,13 @@ const ResourceList = () => {
           <CustomNavDesktop />
         </>
       )}
-      <Container>
+      <Container fluid="true">
         <Row style={{ justifyContent: "space-between" }}>
           {resources.map((record) => (
             <CardDeck>
               <Card
                 border="light"
-                style={{
-                  width: "22em",
-                  marginBottom: "10px",
-                  backgroundColor: "#f5f4f2",
-                }}
+                style={renderMobileOrDesktop()}
                 key={record.id}
               >
                 <Card.Img variant="top" src={record.image} alt="recipe mage" />

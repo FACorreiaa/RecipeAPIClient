@@ -29,7 +29,7 @@ const ResourceList = () => {
     else return "Likes";
   };
 
-  const matches = useMediaQuery("only screen and (max-width: 693px)");
+  const matches = useMediaQuery("only screen and (max-width: 768px)");
 
   const renderMobileOrDesktop = () => {
     const desktop = {
@@ -69,7 +69,7 @@ const ResourceList = () => {
           <CustomNavDesktop />
         </>
       )}
-      <Container fluid="true">
+      <Container>
         <Row style={{ justifyContent: "space-between" }}>
           {resources.map((record) => (
             <CardDeck>

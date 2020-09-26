@@ -11,6 +11,10 @@ import DayJS from "react-dayjs";
 import Likes from "./likes/Likes";
 import CommentsButton from "./comments/Comments";
 import IconGroup from "./navbar/IconGroup";
+import CustomNavDesktop from "./navbar/CustomNavDesktop";
+import CustomNavMobile from "./navbar/CustomNavMobile";
+import { useMediaQuery } from "@react-hook/media-query";
+
 const ResourceList = () => {
   const resources = useResources();
   let value = 0;
@@ -39,8 +43,19 @@ const ResourceList = () => {
       [event.target.name]: item,
     });
   };
+
+  const matches = useMediaQuery("only screen and (max-width: 492px)");
   return (
     <Container>
+      {matches ? (
+        <CustomNavMobile />
+      ) : (
+        <>
+          <CustomNavDesktop />
+          <IconGroup />
+        </>
+      )}
+
       <Row style={{ justifyContent: "space-between" }}>
         {resources.map((record) => (
           <CardDeck>
@@ -61,6 +76,13 @@ const ResourceList = () => {
                   <DayJS format="MM-DD-YYYY">{record.date}</DayJS>
                   &nbsp;&nbsp;
                 </small>
+                <span style={{ float: "right" }}>
+                  <Likes id={record.id} value={value} />
+                  &nbsp;&nbsp;
+                  <span>
+                    {record.likes} {renderLikes(record.likes)}
+                  </span>
+                </span>
                 <div>
                   <small style={{ textAlign: "center" }}>{record.type}</small>
                 </div>
@@ -72,13 +94,6 @@ const ResourceList = () => {
                 >
                   {record.body}
                 </Card.Subtitle>
-                <Row>
-                  <Col>
-                    <Card.Text>
-                      <strong>Made by:</strong> {record.author}
-                    </Card.Text>
-                  </Col>
-                </Row>
                 <Row
                   style={{
                     marginTop: "1em",
@@ -96,28 +111,6 @@ const ResourceList = () => {
                       : "No ingredients added yet"}
                   </Col>
                 </Row>{" "}
-                <Row
-                  style={{
-                    marginTop: "1em",
-                    marginBottom: "1em",
-                    fontSize: "small",
-                  }}
-                >
-                  <Col>
-                    <div>
-                      <strong style={{ fontSize: "15px" }}>
-                        Tap if you enjoyed this recipe please!
-                      </strong>
-                    </div>
-                  </Col>
-                  <Col>
-                    <Likes id={record.id} value={value} />
-                    &nbsp;&nbsp;
-                    <span>
-                      {record.likes} {renderLikes(record.likes)}
-                    </span>
-                  </Col>
-                </Row>
                 <Row
                   style={{
                     marginTop: "1em",
@@ -208,8 +201,8 @@ const ResourceList = () => {
                   )}
                 </Form>
               </Card.Body>
-              <Card.Footer>
-                <IconGroup />
+              <Card.Footer className="text-muted text-center">
+                Made by: {record.author}
               </Card.Footer>
             </Card>
           </CardDeck>

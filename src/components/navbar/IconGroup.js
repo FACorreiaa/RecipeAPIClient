@@ -5,7 +5,16 @@ import { SiLinkedin } from "react-icons/si";
 import { FiInstagram } from "react-icons/fi";
 const IconGroup = () => {
   return (
-    <div style={{ textAlign: "center" }}>
+    <div
+      style={{
+        color: "white",
+        fontSize: "large",
+        fontFamily: "roboto",
+        textAlign: "left",
+      }}
+    >
+      {" "}
+      Follow me on Social media: &nbsp;&nbsp;
       <a
         target="_blank"
         href="https://twitter.com/FACorreiaa"

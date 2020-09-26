@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
+import IconGroup from "./IconGroup";
+
 const CustomNavDesktop = () => {
   return (
     <Navbar
@@ -19,6 +21,9 @@ const CustomNavDesktop = () => {
       >
         Recipe List
       </Navbar.Brand>
+      <div>
+        <IconGroup />
+      </div>
     </Navbar>
   );
 };

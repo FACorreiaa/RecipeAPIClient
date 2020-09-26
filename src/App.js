@@ -1,13 +1,10 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Loader from "react-loader-spinner";
 
-const ResourceComponent = lazy(() => import("./components/ResourceList"));
-const NavBar = lazy(() => '"./components/navbar/CustomNav"');
-const renderLoader = () => (
-  <Loader type="MutatingDots" color="#2BAD60" height="100" width="100" />
-);
+import ResourceList from "./components/ResourceList";
+import "bootstrap/dist/css/bootstrap.min.css";
+import CustomNav from "./components/navbar/CustomNav";
+
 function App() {
   const [resource] = useState();
 
@@ -15,11 +12,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="App-title">
-          <NavBar />
+          <CustomNav />
         </div>
-        <Suspense fallback={renderLoader()}>
-          <ResourceComponent className="App-resource" resource={resource} />
-        </Suspense>
+        <ResourceList className="App-resource" resource={resource} />
       </header>
     </div>
   );

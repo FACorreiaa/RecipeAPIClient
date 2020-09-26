@@ -8,7 +8,9 @@ const Likes = ({ id, value }) => {
       likes={id}
       color="red"
       size={18}
-      onClick={() => postLikes(id)}
+      onClick={() => {
+        postLikes(id);
+      }}
     />
   );
 };

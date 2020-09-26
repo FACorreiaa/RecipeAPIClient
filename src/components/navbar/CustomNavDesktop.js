@@ -17,7 +17,7 @@ const CustomNavDesktop = () => {
           textAlign: "center",
         }}
       >
-        React-Bootstrap
+        Recipe List
       </Navbar.Brand>
     </Navbar>
   );

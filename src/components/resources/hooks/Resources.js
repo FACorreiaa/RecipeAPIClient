@@ -9,13 +9,13 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Badge from "react-bootstrap/Badge";
 import DayJS from "react-dayjs";
-import Likes from "./likes/Likes";
-import CommentsButton from "./comments/Comments";
-import CustomNavDesktop from "./navbar/CustomNavDesktop";
-import CustomNavMobile from "./navbar/CustomNavMobile";
+import Likes from "../../likes/Likes";
+import CommentsButton from "../../comments/Comments";
+import CustomNavDesktop from "../../navbar/CustomNavDesktop";
+import CustomNavMobile from "../../navbar/CustomNavMobile";
 import { useMediaQuery } from "@react-hook/media-query";
 
-const ResourceList = () => {
+const Resources = () => {
   const resources = useResources();
   let value = 0;
   const units = {
@@ -224,4 +224,4 @@ const ResourceList = () => {
   );
 };
 
-export default ResourceList;
+export default Resources;

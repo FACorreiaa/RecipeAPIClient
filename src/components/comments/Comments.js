@@ -9,8 +9,12 @@ const CommentsButton = ({ id, body }) => {
         e.preventDefault();
         postComments(id, body);
       }}
-      variant="dark"
+      style={{
+        color: "#FFFFFF",
+        backgroundColor: "#121212",
+      }}
       size="lg"
+      variant="outline-none"
     >
       Submit comment
     </Button>

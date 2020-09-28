@@ -32,13 +32,15 @@ const Resources = () => {
 
   const renderMobileOrDesktop = () => {
     const desktop = {
+      color: "#FFFFFF",
       width: "22em",
       marginBottom: "10px",
-      backgroundColor: "#f5f4f2",
+      backgroundColor: "#545454",
     };
     const mobile = {
+      color: "#FFFFFF",
       marginBottom: "10px",
-      backgroundColor: "#f5f4f2",
+      backgroundColor: "#545454",
     };
     return matches ? mobile : desktop;
   };
@@ -98,7 +100,7 @@ const Resources = () => {
                   <Card.Subtitle>{record.body}</Card.Subtitle>
                   <div>
                     {record.hash.map((h) => (
-                      <Badge pill variant="dark">
+                      <Badge pill variant="dark" color="#18242B">
                         {h}
                       </Badge>
                     ))}

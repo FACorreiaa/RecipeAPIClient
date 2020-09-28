@@ -7,7 +7,7 @@ const IconGroup = () => {
   return (
     <div
       style={{
-        color: "white",
+        color: "#FFFFFF",
         fontSize: "large",
         fontFamily: "roboto",
         textAlign: "left",
@@ -20,14 +20,14 @@ const IconGroup = () => {
         href="https://twitter.com/FACorreiaa"
         rel=" noopener noreferrer"
       >
-        <ImTwitter color="rgb(0, 123, 255)" size="24px" />
+        <ImTwitter color="#ffffff" size="24px" />
       </a>
       <a
         target="_blank"
         href="https://www.facebook.com/Nandooo316"
         rel=" noopener noreferrer"
       >
-        <RiFacebookCircleFill color="rgb(66,103,178)" size="24px" />
+        <RiFacebookCircleFill color="#ffffff" size="24px" />
       </a>
       <a
         target="_blank"
@@ -35,7 +35,7 @@ const IconGroup = () => {
         rel=" noopener noreferrer"
       >
         {" "}
-        <SiLinkedin color="rbg(40,103,178)" size="24px" />
+        <SiLinkedin color="#ffffff" size="24px" />
       </a>
       <a
         target="_blank"
@@ -43,7 +43,7 @@ const IconGroup = () => {
         rel=" noopener noreferrer"
       >
         {" "}
-        <FiInstagram colot="rbg(253,29,29)" size="24px" />
+        <FiInstagram color="#ffffff" size="24px" />
       </a>
     </div>
   );

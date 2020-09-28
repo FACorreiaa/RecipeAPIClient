@@ -5,15 +5,14 @@ import IconGroup from "./IconGroup";
 const CustomNavDesktop = () => {
   return (
     <Navbar
-      bg="dark"
       variant="dark"
       expand="lg"
-      style={{ textAlign: "center" }}
+      style={{ textAlign: "center", backgroundColor: "#272727" }}
     >
       <Navbar.Brand
         href="#home"
         style={{
-          color: "white",
+          color: "#ffffff",
           fontSize: "x-large",
           fontFamily: "roboto",
           textAlign: "center",

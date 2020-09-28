@@ -25,8 +25,7 @@ const Resources = () => {
   };
 
   const renderLikes = function (param) {
-    if (param === 1) return "Like";
-    else return "Likes";
+    return param === 1 ? "Like" : "Likes";
   };
 
   const matches = useMediaQuery("only screen and (max-width: 768px)");
@@ -41,8 +40,7 @@ const Resources = () => {
       marginBottom: "10px",
       backgroundColor: "#f5f4f2",
     };
-    if (matches) return mobile;
-    else return desktop;
+    return matches ? mobile : desktop;
   };
 
   const initialState = {

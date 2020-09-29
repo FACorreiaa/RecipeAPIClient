@@ -11,7 +11,7 @@ const CommentsButton = ({ id, body }) => {
       }}
       style={{
         color: "#FFFFFF",
-        backgroundColor: "#121212",
+        backgroundColor: "rgb(60, 64, 67)",
       }}
       size="lg"
       variant="outline-none"

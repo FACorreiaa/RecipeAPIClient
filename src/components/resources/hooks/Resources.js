@@ -35,12 +35,12 @@ const Resources = () => {
       color: "#FFFFFF",
       width: "22em",
       marginBottom: "10px",
-      backgroundColor: "#545454",
+      backgroundColor: "rgb(60, 64, 67)",
     };
     const mobile = {
       color: "#FFFFFF",
       marginBottom: "10px",
-      backgroundColor: "#545454",
+      backgroundColor: "rgb(60, 64, 67)",
     };
     return matches ? mobile : desktop;
   };
